@@ -316,6 +316,7 @@ void loadPassword() {
 int main() {
     // Sign in
     sign_in();
+    clear();
     char gen_or_load;
 
     // Run main function
