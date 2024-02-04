@@ -132,10 +132,32 @@ void sign_in() {
     cout << "Welcome to PasswordManager " << user << "!\n";
 
     do {
-        cout << "Password: ";
-        cin >> pass;
-    } while (pass != userpass);
+        std::cout << "Password: ";
+        
+        char ch;
+        pass = "";
+        int i = 0;
 
+        while (1) {
+            ch = _getch();
+
+            if (ch == 13) // Enter key
+                break;
+            else if (ch == 8) { // Backspace key
+                if (i > 0) {
+                    std::cout << "\b \b"; // Move back, erase character, move back again
+                    pass.pop_back();
+                    i--;
+                }
+            } else {
+                std::cout << '*';
+                pass += ch;
+                i++;
+            }
+        }
+        std::cout << std::endl;
+    } while (pass != userpass);
+    
     inputFile.close();
 }
 
