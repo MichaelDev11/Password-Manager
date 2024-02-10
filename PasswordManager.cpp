@@ -11,6 +11,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <stdexcept>
+#include <conio.h>
 
 using namespace std;
 // -----------------------------
@@ -157,7 +158,7 @@ void sign_in() {
         }
         std::cout << std::endl;
     } while (pass != userpass);
-    
+
     inputFile.close();
 }
 
@@ -283,6 +284,7 @@ void generatePassword() {
                     password += charset[rand() % charsetSize];
                 }
             }
+            break;
         } else {
             clear();
             cout << "Invalid Selection. Please enter '1' or '2': ";
